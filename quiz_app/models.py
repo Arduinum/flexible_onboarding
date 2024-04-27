@@ -205,7 +205,7 @@ class TypeRetail(models.Model):
        verbose_name_plural = 'типы заведений ритейлы'
 
 
-class AppointmentService(models.Model):
+class TypeAppointmentService(models.Model):
     """Тип услуга по записи"""
 
     is_fitness_centre = models.BooleanField(

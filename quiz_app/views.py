@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from quiz_app.models import (
     TypePublicCatering,
     TypeRetail,
-    AppointmentService,
+    TypeAppointmentService,
     Quiz
 )
 

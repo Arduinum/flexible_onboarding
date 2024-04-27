@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='AppointmentService',
+            name='TypeAppointmentService',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('is_fitness_centre', models.BooleanField(default=False, verbose_name='фитнес центр')),
