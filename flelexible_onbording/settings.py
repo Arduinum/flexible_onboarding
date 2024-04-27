@@ -11,16 +11,25 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env_path = BASE_DIR / ".env"
 
+if env_path.exists():
+    with open(env_path, encoding="utf-8") as file:
+        for line in file:
+            if not line.strip() or line.strip().startswith("#"):
+                continue
+            name, value = line.strip().split("=", 1)
+            environ[name] = value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g+pv0$2(9(yxf2nvwohm&t@$cahc3@_*dq2qn@$7%e&kt)$y9)'
+SECRET_KEY = environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,12 +87,15 @@ WSGI_APPLICATION = 'flelexible_onbording.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": environ.get("NAME_DB"),
+        "USER": environ.get("USER_DB"),
+        "PASSWORD": environ.get("PASSWORD"),
+        "HOST": environ.get("HOST"),
+        "PORT": environ.get("PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
