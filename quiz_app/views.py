@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+from quiz_app.models import (
+    TypePublicCatering,
+    TypeRetail,
+    AppointmentService,
+    Quiz
+)
+
+
+class Page404View(TemplateView):
+    """Страница 404"""
+    
+    template_name = 'page_404.html'
