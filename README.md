@@ -1,7 +1,7 @@
 # flexible_onboarding
 Flexible onboarding - приложение для гибкого процесса онбординга.
 
-details>
+<details>
 <summary>
   <strong>
     Как оформлять ветки и коммиты
