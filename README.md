@@ -27,3 +27,34 @@ Flexible onboarding - приложение для гибкого процесс�
 Оформление основано на https://www.conventionalcommits.org/en/v1.0.0/
 
 </details>
+
+<details>
+<summary>
+  <strong>
+    Стек
+  </strong>
+</summary>
+
+- **Python 3.11.0**
+- **Django 5.0.4**
+- **PostgreSQL 13.14**
+- **Bootstrap 5**
+- **Html**
+
+</details>
+
+<details>
+<summary>
+  <strong>
+    Инструкция по запуску проекта (Ubuntu/Debian)
+  </strong>
+</summary>
+
+- **postgreSQL** (установите и настройте postgreSQL для своей ОС https://www.postgresql.org/download/)
+- **cd `path_project`** (перейти в папку с проектом)
+- **sudo nano .env** (создайте .env по образцу .env.example)
+- **pip install -r requirements.txt** (установка библиотек и зависимостей)
+- **python manage.py migrate** (примените миграции для базы данных)
+- **python manage.py runserver** (запустите проект)
+
+</details>
