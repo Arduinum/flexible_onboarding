@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Анкета - страница 4
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="post" enctype="multipart/form-data" class="mx-auto col-6">{% csrf_token %}
+            <H2 class="h2 text-center">Анкета</H2>
+            <div class="progress-stacked d-flex">
+                <div class="progress me-1" role="progressbar" aria-label="Segment one" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                   <div class="progress-bar progress-bar-animated" style="width: 100%;"></div>
+                </div>
+                <div class="progress me-1" role="progressbar" aria-label="Segment two" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                   <div class="progress-bar progress-bar-animated" style="width: 100%;"></div>
+                </div>
+                <div class="progress me-1" role="progressbar" aria-label="Segment three" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                   <div class="progress-bar progress-bar-animated" style="width: 100%;"></div>
+                </div>
+                <div class="progress" role="progressbar" aria-label="Segment four" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+            <H3 class="h3">Укажите типы сервисов в вашем заведении</H3>
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.auto_id }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+{% endblock %}
