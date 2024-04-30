@@ -94,8 +94,11 @@ class SizeShopFormView(FormView):
         return kwargs
 
     def form_valid(self, form):
-        quiz = form.save()
-        return redirect(to='quiz_app:')
+        form.save()
+        return redirect(
+            to='quiz_app:service_shop_new', 
+            pk=self.kwargs.get('pk')
+        )
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form))
